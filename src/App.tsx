@@ -3,8 +3,6 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
-import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
 const App = () => {
 
@@ -31,7 +29,7 @@ const App = () => {
                 title={'Menu'}
                 collapsed={accordionCollapsed}
                 items={items}
-                onClick={(item) =>{alert(`Item with ID ${item} was clicked`)}}
+                onClick={(item) =>{console.log(`Item with ID ${item} was clicked`)}}
             />
             Article 1
             <Rating
