@@ -6,36 +6,38 @@ import {OnOff} from "./components/OnOff/OnOff";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
 
-//function declaration
 const App = () => {
-    //do something useful
 
     let [ratingValue, setRatingValue] = useState<0 | 1 | 2 | 3 | 4 | 5>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [on, setOn] = useState(true);
 
-    //must return JSX
+    let items = [
+        {title:'One', value:'1'},
+        {title:'Two', value:'2'},
+        {title:'Three', value:'3'}
+    ]
+
     return (
         <div className='App'>
             <PageTitle title={'This is first page'}/>
             <OnOff on={on}
                    setOn={setOn}
             />
-            {/*<UncontrolledAccordion title={'---TITLE---'}/>*/}
             <Accordion
-                onClick={() => {
+                onChange={() => {
                     setAccordionCollapsed(!accordionCollapsed)
                 }}
                 title={'Menu'}
                 collapsed={accordionCollapsed}
+                items={items}
+                onClick={(item) =>{alert(`Item with ID ${item} was clicked`)}}
             />
             Article 1
             <Rating
                 value={ratingValue}
                 onClick={setRatingValue}
             />
-            {/*Article 3*/}
-            {/*<UncontrolledRating />*/}
         </div>
     );
 }

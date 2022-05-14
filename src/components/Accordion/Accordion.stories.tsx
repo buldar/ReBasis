@@ -9,13 +9,34 @@ export default {
     component: Accordion,
 };
 
-const callback = action('Get un/collapsed')
+let items = [
+    {title:'One', value:'1'},
+    {title:'Two', value:'2'},
+    {title:'Three', value:'3'}
+]
 
-export const AccordionCollapsed = () => <Accordion title={'Collapsed'} collapsed={true} onClick={callback}/>
-export const AccordionNotCollapsed = () => <Accordion title={'NotCollapsed'} collapsed={false} onClick={callback}/>
+const callback = action('Get un/collapsed')
+const onClickItemCallback = action('Item was clicked')
+
+export const AccordionCollapsed = () =>
+    <Accordion title={'Collapsed'}
+               collapsed={true}
+               onChange={callback}
+               items={[]}
+               onClick={onClickItemCallback}/>
+export const AccordionNotCollapsed = () =>
+    <Accordion title={'NotCollapsed'}
+               collapsed={false}
+               onChange={callback}
+               items={items}
+               onClick={onClickItemCallback}/>
 
 export const ModeChanging = () => {
     const [collapse, setCollapse]=useState<boolean>(true)
-    return <Accordion title={'Test3'} collapsed={collapse} onClick={()=>{setCollapse(!collapse)}}/>
+    return <Accordion title={'Test3'}
+                      collapsed={collapse}
+                      onChange={()=>{setCollapse(!collapse)}}
+                      items={items}
+                      onClick={onClickItemCallback}/>
 }
 

@@ -36,7 +36,6 @@ export function OnOff(props:propsType) {
         backgroundColor: !props.on?'red':'green'
     }
 
-debugger
     return (
 
         <div>

@@ -29,7 +29,7 @@ export function Rating(props: RatingType) {
 
 function Star(props: StarType) {
     return (
-        <span onClick={props.onClick} >{props.selected? <b>O</b> : 'O'} </span>
+        <span onClick={props.onClick} >{props.selected? <b>*</b> : '*'} </span>
     )
 
 }
