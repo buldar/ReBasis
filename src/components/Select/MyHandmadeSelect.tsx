@@ -7,11 +7,11 @@ type ItemType = {
 
 type HandmadeSelectPropsType = {
     value: any
-    // onChange:(value:any)=>void
+    onChange:(value:any)=>void
     items:ItemType[]
 }
 
-export const HandmadeSelect = (props:HandmadeSelectPropsType) => {
+export const MyHandmadeSelect = (props:HandmadeSelectPropsType) => {
 
     let [value, setValue] = useState('Choose city')
     let [mode, setMode] = useState<boolean>(false)
@@ -21,6 +21,7 @@ export const HandmadeSelect = (props:HandmadeSelectPropsType) => {
         setMode(false)
     }
     const changeMode = () => {
+        props.onChange('select menu opened/closed')
         setMode(!mode)
     }
 
@@ -29,7 +30,7 @@ export const HandmadeSelect = (props:HandmadeSelectPropsType) => {
             <div onClick={changeMode}>
                 {value}
             </div>
-            {mode && props.items.map(i=><div onClick={()=>{choose(i.title)}}>{i.title}</div>)}
+            {mode && props.items.map(i=><div key={i.value} onClick={()=>{choose(i.title)}}>{i.title}</div>)}
         </div>
     )
 }
