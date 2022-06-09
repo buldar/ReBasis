@@ -3,6 +3,7 @@ import './App.css';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating, RatingType} from "./components/Rating/Rating";
 import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
 
 const App = () => {
 
@@ -18,24 +19,25 @@ const App = () => {
 
     return (
         <div className='App'>
-            <PageTitle title={'This is first page'}/>
-            <OnOff on={on}
-                   setOn={setOn}
-            />
-            <Accordion
-                onChange={() => {
-                    setAccordionCollapsed(!accordionCollapsed)
-                }}
-                title={'Menu'}
-                collapsed={accordionCollapsed}
-                items={items}
-                onClick={(item) =>{console.log(`Item with ID ${item} was clicked`)}}
-            />
-            Article 1
-            <Rating
-                value={ratingValue}
-                onClick={setRatingValue}
-            />
+            <UncontrolledAccordion title={'UncontrolledAccordion'}/>
+            {/*<PageTitle title={'This is first page'}/>*/}
+            {/*<OnOff on={on}*/}
+            {/*       setOn={setOn}*/}
+            {/*/>*/}
+            {/*<Accordion*/}
+            {/*    onChange={() => {*/}
+            {/*        setAccordionCollapsed(!accordionCollapsed)*/}
+            {/*    }}*/}
+            {/*    title={'Menu'}*/}
+            {/*    collapsed={accordionCollapsed}*/}
+            {/*    items={items}*/}
+            {/*    onClick={(item) =>{console.log(`Item with ID ${item} was clicked`)}}*/}
+            {/*/>*/}
+            {/*Article 1*/}
+            {/*<Rating*/}
+            {/*    value={ratingValue}*/}
+            {/*    onClick={setRatingValue}*/}
+            {/*/>*/}
         </div>
     );
 }
